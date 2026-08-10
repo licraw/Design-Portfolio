@@ -6,6 +6,7 @@ import {
   Column,
   Flex,
   Heading,
+  Media,
   SmartLink,
   Text,
 } from "@once-ui-system/core";
@@ -14,6 +15,7 @@ interface ProjectCardProps {
   href: string;
   priority?: boolean;
   images: string[];
+  preview?: string;
   title: string;
   content: string;
   description: string;
@@ -24,6 +26,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
   images = [],
+  preview,
   title,
   content,
   description,
@@ -32,7 +35,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Column fillWidth gap="m">
-      {images.length > 0 && (
+      {preview ? (
+        <Media
+          aspectRatio="16 / 9"
+          radius="l"
+          border="neutral-alpha-weak"
+          alt={`${title} preview`}
+          src={preview}
+        />
+      ) : images.length > 0 ? (
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
           items={images.map((image) => ({
@@ -40,7 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             alt: title,
           }))}
         />
-      )}
+      ) : null}
       <Flex
         s={{ direction: "column" }}
         fillWidth

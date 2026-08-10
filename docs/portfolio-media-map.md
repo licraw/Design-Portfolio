@@ -54,11 +54,13 @@ Source: Figma `PtTVVeJV510W5GMowTEbMu` — *Soft Arcade Design System V1*.
 
 Two sources: the live site captured through Figma code-to-canvas into scratch file `6v1KIEQpkztzUqB5Zf2ots`, and the redesign design file `fZynXGuJ9MaKTkHy5E40ye`.
 
+Desktop captures were re-taken at a **1348px viewport**. An earlier 1080px pass landed in a bad breakpoint zone where the logo collided with the first nav item and the services grid stacked awkwardly; 1348px is the first width where the nav lays out as designed. Capture node: `7:2`.
+
 | File | Source | Demonstrates | Placement |
 | --- | --- | --- | --- |
-| `paintpdx-homepage-hero-desktop.jpg` | Live capture, node `6:2` (16:9 crop frame) | Header, nav and hero of the built site | Frontmatter `images[0]` + opening figure |
-| `paintpdx-services-section.jpg` | Live capture, node `2:146` (2×) | Photographic service cards with the interior/exterior toggle | "The built site" |
-| `paintpdx-about-section.jpg` | Live capture, node `2:101` (2×) | Credibility block and statistic cards | "The built site" |
+| `paintpdx-homepage-hero-desktop.jpg` | Live capture at 1348px, node `8:2` (16:9 crop frame) | Full desktop nav, announcement bar, estimate CTA and hero | Frontmatter `images[0]` + opening figure |
+| `paintpdx-services-section.jpg` | Live capture at 1348px, node `7:146` (2×) | Three-card service grid with the expanded card and interior/exterior toggle | "The built site" |
+| `paintpdx-about-section.jpg` | Live capture at 1348px, node `7:101` (2×) | Two-column about block and the three statistic cards | "The built site" |
 | `paintpdx-homepage-mobile.jpg` | Live site rendered in a 390px viewport, Chrome | Mobile nav and hero | Responsive `FigureRow` |
 | `paintpdx-services-mobile.jpg` | Live site rendered in a 390px viewport, Chrome | Service card and toggle surviving the small screen | Responsive `FigureRow` |
 | `paintpdx-style-guide.png` | Design file, node `49801:176` | Type ramp and green scale defined before layout | "Designed before it was built" |
@@ -106,17 +108,15 @@ Rendered as a 16:9 embed through `Figure`. Per instruction this is the only medi
 
 ## 6. Clean Strength — Label Design
 
-**Awaiting supplied media.** The page references:
+Source: product photography published on `cleanstrength.com`.
 
-```
-public/images/projects/clean-strength/clean-strength-label-01.jpg
-public/images/projects/clean-strength/clean-strength-label-02.jpg
-public/images/projects/clean-strength/clean-strength-labels-applied.jpg
-```
+| File | Demonstrates | Placement |
+| --- | --- | --- |
+| `clean-strength-label-01.jpg` | Creatine packaging, with the blue/black system wrapped around a wide container | Frontmatter `images[0]` → project card + first figure row |
+| `clean-strength-label-02.jpg` | The quieter wellness-label variant applied to a small supplement bottle | First figure row |
+| `clean-strength-labels-applied.jpg` | The core label system scaled to a large whey protein container | Full-width closing figure |
 
-The first two render as a two-up row, the third full width. Any that are missing are skipped. Filenames can be changed in `src/app/work/projects/clean-strength-labels.mdx` if the real exports are named differently.
-
-**Still needed:** label exports and/or product photography. Until then this project has no card image on the homepage, which is why its card currently shows text only.
+**Still needed:** original flat label exports would show the typography and production layout more precisely than storefront product photography alone.
 
 ---
 

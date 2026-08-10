@@ -41,6 +41,7 @@ export function Projects({ range, exclude }: ProjectsProps) {
           key={post.slug}
           href={`/work/${post.slug}`}
           images={post.metadata.images}
+          preview={post.metadata.preview}
           title={post.metadata.title}
           description={post.metadata.summary}
           content={post.content}
