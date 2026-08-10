@@ -80,17 +80,13 @@ The case study says plainly that the before state is not shown rather than recon
 
 ## 4. Fender Product Gallery
 
-**Awaiting supplied media.** The page opens with a figure pointing at:
+| Source | Demonstrates | Placement |
+| --- | --- | --- |
+| `https://www.youtube.com/embed/cCHuy0-lUn0` (supplied by Liam) | Sticky desktop layout, masonry media, variant switching and the 360-degree modal in production | Frontmatter `preview` → project card, and the first element on the case-study page |
 
-```
-public/images/projects/fender-product-gallery/fender-product-gallery.mp4
-```
+Rendered as a 16:9 embed through `Figure`; the same URL drives the card via the `preview` frontmatter field. No local media file is used, and no Fender imagery was scraped or invented.
 
-Drop the MP4 at exactly that path and it appears at the top of the case study with no other change. Until then the figure renders nothing — there is no broken player and no placeholder.
-
-No Fender imagery was scraped or invented.
-
-**Still needed:** the product gallery MP4. A 16:9 poster frame at `fender-product-gallery-poster.jpg` would also improve the unplayed state (pass it via the figure's `poster` prop).
+**Still needed:** nothing.
 
 ---
 

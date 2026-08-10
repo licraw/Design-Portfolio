@@ -18,7 +18,7 @@ No project route is password protected.
 | 1 | Soft Arcade Synth Lab | `soft-arcade-synth-lab` | Product Design + Design Engineering; flagship browser music tool | TODO: confirmed Synth Lab, Soft Arcade, and optionally public GitHub URLs | 12 Figma artifacts exported. Missing: captures of the implemented product |
 | 2 | Soft Arcade Design System V1 | `soft-arcade-design-system` | Design Systems; audit, foundations, components, patterns, and Synth Lab application | TODO: confirmed Soft Arcade URL | 8 Figma artifacts exported; complete |
 | 3 | PaintPDX Redesign & Rebuild | `paintpdx-redesign` | Product Design + Frontend Development; preserve character while modernizing | [paintpdx.com](https://paintpdx.com) | 7 assets: live captures (desktop + mobile) and design-file artifacts. No faithful before state found |
-| 4 | Fender Product Gallery | `fender-product-gallery` | Frontend Engineering + Interaction Engineering; production realization of design direction | TODO: safe public product URLs | Awaiting supplied MP4; slot wired |
+| 4 | Fender Product Gallery | `fender-product-gallery` | Frontend Engineering + Interaction Engineering; production realization of design direction | TODO: safe public product URLs | YouTube walkthrough embed supplied; complete |
 | 5 | Fender Play — First Song Onboarding | `fender-play-first-song` | Motion + Interaction Engineering; filling motion gaps between static states | TODO: safe public product URL if applicable | YouTube walkthrough embed supplied; complete |
 | 6 | Clean Strength — Label Design | `clean-strength-labels` | Visual Design / Packaging; concise image-led project | None confirmed | Awaiting label exports; slots wired |
 
@@ -42,7 +42,7 @@ See [portfolio-media-map.md](portfolio-media-map.md) for per-file sources and pl
 - Add Synth Lab and Soft Arcade URLs; add Synth Lab GitHub only if the repository is public.
 - Confirm PaintPDX implementation technologies.
 - Add safe public URLs for Fender work where applicable.
-- Supply the Fender Product Gallery MP4 and the Clean Strength label exports (paths in the media map).
+- Supply the Clean Strength label exports (paths in the media map).
 - Grant Figma edit access to `lgvvX3QlXKGbBYnwb3ZCJY` if it holds pre-redesign PaintPDX material.
 
 ## Template behavior for the next agent
