@@ -58,9 +58,9 @@ Desktop captures were re-taken at a **1348px viewport**. An earlier 1080px pass 
 
 | File | Source | Demonstrates | Placement |
 | --- | --- | --- | --- |
-| `paintpdx-homepage-hero-desktop.jpg` | Live capture at 1348px, node `8:2` (16:9 crop frame) | Full desktop nav, announcement bar, estimate CTA and hero | Frontmatter `images[0]` + opening figure |
-| `paintpdx-services-section.jpg` | Live capture at 1348px, node `7:146` (2×) | Three-card service grid with the expanded card and interior/exterior toggle | "The built site" |
-| `paintpdx-about-section.jpg` | Live capture at 1348px, node `7:101` (2×) | Two-column about block and the three statistic cards | "The built site" |
+| `paintpdx-homepage-hero.jpg` | Live capture at 1348px, node `8:2` (16:9 crop frame) | Full desktop nav, announcement bar, estimate CTA and hero | Frontmatter `images[0]` + opening figure |
+| `paintpdx-services.jpg` | Live capture at 1348px, node `7:146` (2×) | Three-card service grid with the expanded card and interior/exterior toggle | "The built site" |
+| `paintpdx-about.jpg` | Live capture at 1348px, node `7:101` (2×) | Two-column about block and the three statistic cards | "The built site" |
 | `paintpdx-homepage-mobile.jpg` | Live site rendered in a 390px viewport, Chrome | Mobile nav and hero | Responsive `FigureRow` |
 | `paintpdx-services-mobile.jpg` | Live site rendered in a 390px viewport, Chrome | Service card and toggle surviving the small screen | Responsive `FigureRow` |
 | `paintpdx-style-guide.png` | Design file, node `49801:176` | Type ramp and green scale defined before layout | "Designed before it was built" |
