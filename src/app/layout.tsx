@@ -52,7 +52,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = ${JSON.stringify(style.theme)};
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
@@ -81,9 +81,16 @@ export default async function RootLayout({
                     return themeValue;
                   };
                   
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
+                  // Apply saved theme. With no saved preference, persist the
+                  // configured default so ThemeProvider treats it as an explicit
+                  // choice instead of resolving to the OS colour scheme. The
+                  // theme toggle continues to overwrite this value.
+                  let savedTheme = localStorage.getItem('data-theme');
+                  if (!savedTheme && defaultTheme !== 'system') {
+                    savedTheme = defaultTheme;
+                    localStorage.setItem('data-theme', defaultTheme);
+                  }
+                  const resolvedTheme = resolveTheme(savedTheme || defaultTheme);
                   root.setAttribute('data-theme', resolvedTheme);
                   
                   // Apply any saved style overrides
@@ -96,7 +103,7 @@ export default async function RootLayout({
                   });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
             `,

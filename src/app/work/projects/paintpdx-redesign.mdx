@@ -2,30 +2,73 @@
 title: "PaintPDX Redesign & Rebuild"
 subtitle: "Product Design + Frontend Development"
 order: 3
-summary: "A redesign and rebuild of a Portland painting company's website, preserving what the owner valued about the existing site while modernizing the UI and frontend."
-images: []
+summary: "A dated WordPress site for a Portland painting company, redesigned and rebuilt. The brief was not to erase its personality — it was to keep what the owner valued and make it work."
+images:
+  - "/images/projects/paintpdx/paintpdx-homepage-hero-desktop.jpg"
 team: []
 link: "https://paintpdx.com"
 ---
 
-## Existing site
+## What it is
 
-Liam led the redesign and rebuild of PaintPDX’s website. The existing experience was an older WordPress site.
+Portland Painting & Restoration is a painting and restoration contractor serving Portland and Vancouver. Their site was an aging WordPress build.
 
-## What needed to stay
+Liam led the redesign and the rebuild — visual design, the design file, and the front-end implementation. The site is live at [paintpdx.com](https://paintpdx.com).
 
-The project did not begin by discarding the old site’s personality. Liam identified the parts the owner valued and used those as constraints for the new work.
+<Figure
+  src="/images/projects/paintpdx/paintpdx-homepage-hero-desktop.jpg"
+  alt="PaintPDX homepage header and hero: green announcement bar, logo and navigation, a free-estimate pill, and a large headline reading Transform or Restore your space with our painting and carpentry experts"
+  caption="The live homepage. Type does the work the old site asked images to do."
+/>
 
-## Redesign
+## What had to stay
 
-The redesign preserved that character while creating a clearer, more modern interface for the Portland painting company.
+A small contractor's site is not a blank canvas. The logo, the green, the phone number in the top bar, and the plain-spoken tone were the parts the owner valued and customers recognized, so they were treated as fixed inputs rather than things to improve.
 
-## Responsive implementation
+What changed was everything around them: hierarchy, type scale, spacing, image treatment, and the way services are presented.
 
-Liam translated the redesign into a responsive frontend that works across screen sizes.
+## Designed before it was built
+
+<Figure
+  src="/images/projects/paintpdx/paintpdx-style-guide.png"
+  alt="PaintPDX style guide showing the Helvetica Neue type ramp with five headline sizes, three body sizes and button sizes, plus a green brand color scale from white through to black with hex values"
+  caption="Type ramp and a full green scale built off the existing brand color, defined before layout so the site had one vocabulary instead of per-page decisions."
+/>
+
+## The built site
+
+<Figure
+  src="/images/projects/paintpdx/paintpdx-services-section.jpg"
+  alt="PaintPDX services section with three photographic cards for painting, carpentry and restoration, each with an interior and exterior toggle"
+  caption="Services carry the site's own photography. The interior/exterior toggle keeps three service cards from becoming six."
+/>
+
+<Figure
+  src="/images/projects/paintpdx/paintpdx-about-section.jpg"
+  alt="PaintPDX about section with a headline reading Reviving Homes, Restoring Trust and three statistic cards for years serving Portland, Google rating and completed projects"
+  caption="The credibility block states what the business can actually claim — years in business, its public Google rating, completed projects."
+/>
+
+## Responsive
+
+<FigureRow
+  items={[
+    { src: "/images/projects/paintpdx/paintpdx-homepage-mobile.jpg", alt: "PaintPDX homepage on a 390px viewport with a collapsed hamburger menu and stacked hero headline", label: "Live · 390px" },
+    { src: "/images/projects/paintpdx/paintpdx-services-mobile.jpg", alt: "PaintPDX services section on a 390px viewport with a full-width photographic service card and interior/exterior toggle", label: "Live · 390px" }
+  ]}
+  caption="Captured from the live site at a 390px viewport. The service card keeps its toggle rather than dropping it on small screens."
+/>
+
+<Figure
+  src="/images/projects/paintpdx/paintpdx-mobile-menu-design.png"
+  alt="PaintPDX mobile menu design showing a full-screen navigation panel with primary links and a Get Estimate action"
+  caption="Mobile menu, from the design file. The estimate action stays reachable once the navigation collapses."
+/>
 
 ## Result
 
-The rebuilt site is live at [paintpdx.com](https://paintpdx.com). No conversion or business metrics are claimed here.
+The site is live and responsive, and the business's identity survived the rebuild. No conversion, traffic or revenue claims are made here.
 
-TODO: Add confirmed implementation technologies and the project timeframe. Add before-and-after imagery when source assets are available.
+## Notes on media
+
+The pre-redesign site is not shown. The archived copies of the old WordPress build no longer render with their stylesheets, and a reconstruction would not be an honest before state.

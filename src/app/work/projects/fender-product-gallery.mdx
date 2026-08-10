@@ -1,22 +1,42 @@
 ---
 title: "Fender Product Gallery"
-subtitle: "Frontend Engineering + Interaction Design"
+subtitle: "Frontend Engineering + Interaction Engineering"
 order: 4
-summary: "A reusable production product-gallery experience built across Fender's multi-brand ecommerce storefronts."
+summary: "A reusable product gallery running across Fender's storefronts — sticky desktop layout, masonry and carousel presentation, variant-driven media, and a 360-degree viewer."
 images: []
 team: []
 ---
 
-## Overview
+<Figure
+  src="/images/projects/fender-product-gallery/fender-product-gallery.mp4"
+  alt="Screen recording of the Fender product gallery: sticky desktop layout, masonry media, variant switching and the 360-degree modal"
+  caption="The gallery in production."
+/>
 
-Liam worked as an engineer within Fender’s product and design direction, translating a polished visual concept into resilient production interaction. This case study does not claim authorship of Fender’s visual design.
+## What it is
 
-## Production interaction
+The product gallery is the media experience on Fender product pages — the thing a customer scrolls, expands and rotates before deciding to buy a guitar.
 
-The React-based gallery work included responsive layouts, sticky desktop behavior, masonry and carousel presentation, variant-driven product media, 360-degree media and modal interaction, and loading and skeleton states.
+Fender's product and design team owned the visual direction. Liam's work was engineering: turning that direction into a gallery that holds up in production, across brands, on real devices.
 
-## Reusable frontend architecture
+## What the interaction had to do
 
-The experience needed reusable architecture, performance consideration, and careful handling of Safari and other browser edge cases. The work supported multi-brand ecommerce use across Fender, Jackson, and PreSonus where appropriate.
+- **Sticky desktop layout.** The media column holds position while the buying details scroll beside it.
+- **Masonry and carousel presentation.** The same media set reads as a composed grid on desktop and a swipeable carousel on touch.
+- **Variant-driven media.** Changing a finish or configuration swaps the entire media set without the layout jumping or reloading.
+- **360-degree media and modal.** Full-screen rotation of the instrument, with drag and keyboard control.
+- **Loading and skeleton states.** Guitar photography is heavy; the layout reserves its space before the images arrive rather than reflowing around them.
 
-TODO: Add verified project timeframe, public product URLs, and safe screenshots or recordings. Keep proprietary implementation details out of the final case study.
+## Why it was harder than it looks
+
+A gallery is where a product page's hardest problems collect. Media counts vary per product. Variant switches change aspect ratios. Sticky positioning interacts badly with lazy-loaded images that change height after paint. Safari needed its own handling for sticky behavior and for the 360 viewer's pointer events.
+
+The architecture had to survive all of that and stay reusable, because the same gallery runs across multiple brands and storefronts rather than being rebuilt per site.
+
+## Ownership
+
+This case study does not claim authorship of Fender's visual design. The design direction came from Fender's product and design team; the production interaction, component architecture, performance work and browser edge cases were Liam's.
+
+## Links
+
+TODO: Add public product URLs if they are safe to publish.

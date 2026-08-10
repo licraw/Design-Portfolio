@@ -2,44 +2,139 @@
 title: "Soft Arcade Synth Lab"
 subtitle: "Product Design + Design Engineering"
 order: 1
-summary: "A browser-based four-track groovebox designed to help people learn synthesis by making music."
-images: []
+summary: "A browser-based four-track groovebox that teaches synthesis by getting people making music first. Liam defined, designed and built it."
+images:
+  - "/images/projects/synth-lab/synth-lab-desktop-drum-challenge.png"
 team: []
 ---
 
-## Overview
+## What it is
 
-Synth Lab is a playful browser-based four-track groovebox that teaches synthesis through making rather than detached tutorials. Liam designed and built the product.
+Soft Arcade Synth Lab is a browser-based four-track groovebox designed to help people learn synthesis by making music. Drums, bass, pads and lead play together on a two-bar loop. A challenge rail introduces one concept at a time and asks you to change something and listen, rather than reading about it first.
 
-## Problem
+Liam owned this end to end: product definition, interaction and visual design, the Figma design file, and the front-end implementation.
 
-Traditional synthesizer interfaces often expose oscillators, filters, envelopes, sequencing, and polyphony in ways that assume prior knowledge. The design goal was to preserve real synthesis concepts while making their cause and effect easier to understand.
+<Figure
+  src="/images/projects/synth-lab/synth-lab-desktop-lesson-active.png"
+  alt="Synth Lab desktop design showing the transport, four track lanes, an open bass editor with a note grid, oscillator, amp envelope and filter controls, and a challenge rail on the right"
+  caption="Final product design, desktop. The challenge asks the player to make the bass darker without turning it down; the control it means is highlighted in place."
+/>
 
-## Design exploration
+## The problem
 
-The interface exploration considered perceptual versus technical parameter language and led to dual labels that connect what a control sounds like with the underlying synthesis concept. It also covered knobs versus sliders, parameter grouping and progressive disclosure, sequencer interaction, ADSR envelope interaction, and responsive touch behavior.
+Synthesizer interfaces assume you already know what an oscillator, a filter envelope or polyphony is. The usual alternative — a tutorial that explains synthesis before you touch anything — separates the concept from the sound it produces.
 
-## Design system
+The design goal was to keep the real synthesis concepts intact while making cause and effect immediately legible. Five open questions came out of that, and each was explored before anything was committed.
 
-Synth Lab was designed using [Soft Arcade Design System V1](/work/soft-arcade-design-system) as its shared foundation.
+## How should an unfamiliar parameter read?
 
-## Build
+Beginners think in perceptual words. Synthesis has real names. Hiding the real term makes the product useless as teaching; leading with it is the wall the product exists to remove.
 
-The product is built with React, TypeScript, Tone.js, and browser audio APIs. A semantic command and state architecture supports product actions, responsive interaction, and shared undo/history behavior.
+Three directions were built and compared: perceptual only, technical only, and a permanent dual label.
 
-## Agentic interface
+<Figure
+  src="/images/projects/synth-lab/synth-lab-exploration-parameter-labels.png"
+  alt="Three parameter label options compared: Brightness only (rejected), Filter Cutoff only (rejected), and a selected dual label showing Brightness with FILTER CUTOFF · low-pass beneath it"
+  caption="Exploration D. The dual label was selected: perceptual name leads, the technical name sits under it permanently, the value is always visible."
+/>
 
-Synth Lab includes an experimental WebMCP interface. Agents work through semantic musical tools instead of DOM automation. Their changes use the same command and state architecture as human changes, remain visible and audible in the product, and participate in normal undo/history behavior. This interface is experimental, not presented as production-ready.
+Hover-to-reveal and a beginner/expert toggle were both rejected. Hover fails on touch and hides the exact word the product is trying to teach; a mode toggle asks the user to declare their own level before they have any basis for it.
 
-## Iteration
+The decision has a real cost. Every control is three lines instead of one, which is why the editor holds four parameters per row rather than eight.
 
-Implementation changed the design in concrete ways:
+## Sliders, not knobs
 
-- The initial one-bar loop became repetitive, so the pattern expanded to two bars.
-- The initial tempo was reduced to make listening and learning feel less rushed.
-- Mobile audio exposed real browser and audio lifecycle constraints.
-- The implementation was brought back into alignment with the designed grouped audio controls and ADSR interaction.
+Synths conventionally use knobs. Convention on its own was not treated as a reason.
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-exploration-knobs-vs-sliders.png"
+  alt="Rotary knob, horizontal slider and vertical fader compared as parameter controls, with the horizontal slider selected"
+  caption="Exploration E. Horizontal sliders won on teachability: the whole range stays visible, so an explanation can point at where a value moved from and to."
+/>
+
+A knob shows only a current angle, and dragging one is a mouse-only gesture. Sliders are keyboard-operable, have an unambiguous drag axis, and reach a 44px touch target without growing. The accepted cost is that the instrument looks less like a synthesizer.
+
+## One deliberate exception
+
+Attack, decay, sustain and release are not four independent numbers — they describe a single shape over time. Splitting them into four unrelated rows hides the relationship that matters.
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-adsr-envelope-states.png"
+  alt="ADSR envelope component in three states: default, highlighted by a lesson, and changed by an agent with the previous shape shown as a dashed outline"
+  caption="The amp envelope is a direct-manipulation graph with the numeric values beneath it. Right: when an agent changes the envelope, the previous shape stays on screen as a dashed outline."
+/>
+
+## Fitting four synths on one screen
+
+Four tracks with their own synths is roughly fifty controls. Showing all of them at once has no narrow layout; showing one track at a time hides the fact that four are playing together, which is the point of a groovebox.
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-exploration-track-workspace.png"
+  alt="Three track workspace options compared: all four track editors expanded, four compact lanes with one focused editor, and one track at a time"
+  caption="Exploration B. Four always-visible lanes plus a single focused editor keeps the ensemble audible and visible while one track is being learned."
+/>
+
+The grid rows change meaning per track — drum sounds, scale degrees or chords — over the same sixteen columns, which are one bar of the two-bar loop. The opening challenge (above) builds a beat on the drum track before any synthesis vocabulary appears at all.
+
+## Built on the design system
+
+Synth Lab was designed on top of [Soft Arcade Design System V1](/work/soft-arcade-design-system) rather than inventing its own foundations. Type, color, spacing, radius and focus treatment all come from the system; Synth Lab adds only the components synthesis actually needs.
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-parameter-slider-states.png"
+  alt="Parameter Slider component in six states: default, hover, focus, disabled, highlighted and agent changed"
+  caption="Parameter Slider, the most-used control in the product. Two of its six states — highlighted and agent changed — carry the teaching load."
+/>
+
+Building the product also exposed four gaps that are broader than Synth Lab: a generic segmented control, a toggle, an anchored popover, and a reusable range control. Each is documented as a candidate for the shared system and deliberately left out of V1, so the baseline stays stable until a second product needs them.
+
+## One layout, three widths
+
+No component has a mobile-only variant. The rail relocates, track lanes drop their step grids and become a selector, and the pattern moves into the editor.
+
+<FigureRow
+  items={[
+    { src: "/images/projects/synth-lab/synth-lab-responsive-narrow-834.png", alt: "Synth Lab at 834px wide with the coach rail moved below the transport", label: "834 px" },
+    { src: "/images/projects/synth-lab/synth-lab-responsive-mobile-390.png", alt: "Synth Lab at 390px wide with track lanes reduced to a selector", label: "390 px" }
+  ]}
+  caption="Same components at every width. The desktop coach rail cannot survive as a rail below 900px, so it becomes a band above the instrument."
+/>
+
+## Agentic interface — an experimental POC
+
+Synth Lab exposes semantic musical tools to agents through WebMCP instead of relying on DOM automation. An agent asks for a musical change; the product decides how to make it.
+
+Agent changes go through the same command architecture as human changes, so they move the visible controls, produce an audible result, and participate in normal undo and history. Every change is explained next to the control it touched.
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-exploration-agent-presence.png"
+  alt="Three options for agent presence compared: a persistent chat panel, inline cards only, and the selected inline card plus a collapsed activity log"
+  caption="Exploration C. A persistent chat panel was rejected: WebMCP is feature-detected, so most sessions have no agent at all, and reserving a third of the workspace for an absent capability makes a worse instrument."
+/>
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-agent-action-card-states.png"
+  alt="Agent action card in three states: applied with before and after values and hear-before, hear-after and undo actions; working; and a failed change explaining nothing was altered"
+  caption="Explaining a change belongs next to the control that changed — a side panel structurally cannot do that. Failure states say plainly that nothing was altered."
+/>
+
+<Figure
+  src="/images/projects/synth-lab/synth-lab-desktop-agent-change.png"
+  alt="Synth Lab desktop design after an agent change, with an inline action card in the editor and the affected filter controls marked as changed by agent"
+  caption="An applied agent change in context: the card sits in the editor, the controls it moved are marked, and the transport shows a collapsed activity count."
+/>
+
+This is a proof of concept, not a production capability.
+
+## What building it changed
+
+The design file and the running product were not developed in one direction. Implementation pushed back:
+
+- A one-bar loop was too repetitive to sit with while learning. The pattern became two bars, and the lane strip became a read-only summary of all 32 steps.
+- The default tempo was too fast to hear a change land. It came down.
+- Mobile audio exposed real browser and audio-lifecycle constraints, which is why the product has an explicit start gate rather than autoplaying.
+- The implementation drifted from the designed control grouping and envelope interaction, and was brought back into alignment with the component system rather than the other way round.
 
 ## Links
 
-TODO: Add the confirmed live Synth Lab and Soft Arcade URLs. Add a GitHub link only if the repository is intended to be public.
+TODO: Add the live Synth Lab and Soft Arcade URLs, and a GitHub link only if the repository is public.

@@ -1,0 +1,26 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.breakout {
+  width: min(68rem, calc(100vw - 3rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--figure-columns, 2), minmax(0, 1fr));
+  align-items: start;
+}
+
+@include breakpoints.s {
+  .breakout {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+

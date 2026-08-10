@@ -2,21 +2,36 @@
 title: "Fender Play — First Song Onboarding"
 subtitle: "Motion + Interaction Engineering"
 order: 5
-summary: "An animated onboarding experience where engineering filled the interaction gaps between static product designs and the final production experience."
+summary: "Fender Play's onboarding takes a new player to their first song. The static screens were designed; the movement between them was engineered."
 images: []
 team: []
 ---
 
-## Overview
+<Figure
+  src="https://www.youtube.com/embed/FnE3qncJIqo?si=cUyruxUWmSww9EY2"
+  alt="Product walkthrough of the Fender Play first song onboarding flow"
+  caption="Product walkthrough — the onboarding flow in production."
+/>
 
-Liam worked with Fender’s product designers to translate strong static Figma screens into a production onboarding experience. The design team owned the original product and visual direction.
+## What it is
 
-## From states to interaction
+Fender Play's first-song onboarding is the sequence that takes someone who has just picked up a guitar to playing something recognizable. Fender's product and design team established the key states and the visual direction.
 
-The screens described key states, but not every moment of motion and interaction between them. Liam’s engineering work included translating that intent into production and making interaction and motion decisions where a static handoff could not fully specify behavior.
+What a static handoff cannot specify is what happens between those states — how a step resolves into the next, what leads and what follows, what happens when a user moves faster than the animation. Liam built the production implementation and made those calls.
 
-## Implementation
+## Static design → interaction → production motion
 
-The experience used Lottie and the Web Animations API for complex onboarding transitions. The work combined production implementation, close collaboration with product and design, and detailed decisions about the moments between static screens.
+The design defined where the experience starts and where it lands. The engineering work was everything in between:
 
-TODO: Add a verified project timeframe and a safe screen recording or video when one is available.
+- **Lottie** for the illustrated sequences the design team authored.
+- **The Web Animations API** for the transitions between states, where timing needed to respond to what the user did rather than play a fixed clip.
+- **Sequencing and timing** across both — deciding what overlaps, what waits, and how long a beat holds before it starts to feel slow.
+- **Interruption behavior** — what a transition does when someone taps through it, which no static frame describes.
+
+## Working with the design team
+
+The decisions that weren't specified were resolved with the designers rather than around them: build the interaction, watch it, adjust the timing together. Credit for the product direction and the visual design belongs to Fender's design team; the motion behavior in the shipped experience was implemented and, where underspecified, decided in engineering.
+
+## Links
+
+TODO: Add a public URL if one is safe to publish.

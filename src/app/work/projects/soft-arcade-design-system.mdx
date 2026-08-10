@@ -2,35 +2,86 @@
 title: "Soft Arcade Design System V1"
 subtitle: "Design Systems"
 order: 2
-summary: "A design system created by auditing and formalizing the visual language shared across Soft Arcade products."
-images: []
+summary: "Soft Arcade already had a recognizable visual language across several independently built products. It had never been written down. Liam audited what shipped and extracted a system from it."
+images:
+  - "/images/projects/soft-arcade-design-system/design-system-current-product-desktop.png"
 team: []
 ---
 
-## Overview
+## What it is
 
-Soft Arcade already had several products and games with a recognizable visual language, but that language had not been formalized into a reusable system.
+Soft Arcade is a portal with several games built independently of each other. They looked related — dark canvas, charcoal surfaces, cream text, cyan action — but nothing was shared. Buttons, inputs, dialogs and tabs were re-implemented inside each game.
 
-## Audit
+Liam audited the production interface and consolidated it into a baseline system. The starting position matters: this was extraction, not a redesign. Nothing in the system was invented because it would look better.
 
-The work began by capturing and auditing existing production interfaces rather than redesigning Soft Arcade from scratch.
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-current-product-desktop.png"
+  alt="Two production Soft Arcade screens captured side by side: the portal home page and the Labs page, both dark themed with cyan accents"
+  caption="Captured from production, unretouched. Everything in the foundations and component pages was derived from screens like these."
+/>
+
+## The audit came first
+
+Eight themes, each separating what was observed in the shipped product from what the system does about it. The evidence was the real thing: the global stylesheet, both game CSS modules, and rendered captures at the viewports the products actually use.
+
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-audit-themes.png"
+  alt="Audit page with eight themed cards — typography, color, spacing and shape, components, interaction, responsive, accessibility, state coverage — each tagged consistent, inconsistent, partial or deferred"
+  caption="Each theme is tagged for what it is, not what it should be. Some resolve into the baseline; some are explicitly deferred."
+/>
+
+The tags do real work. Color was found consistent in intent but inconsistent in execution — several near-duplicate darks filling the same role. Spacing was mostly reliable, with a handful of one-off values. Accessibility was partial: focus rings existed on prominent links and cards but not on navigation links or several game buttons, and some targets fell below 44px.
 
 ## Foundations
 
-The foundations cover typography, color, spacing, borders and surfaces, interaction and focus states, and accessibility considerations.
+Observed values were collapsed into semantic ones rather than catalogued. Nine text styles replaced a set of near-duplicate display sizes; a ten-step spacing scale absorbed the isolated 6, 10, 14, 22 and 34px values; semantic color tokens alias a smaller set of primitives so games consume roles rather than hex.
 
-## Components
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-foundations-typography.png"
+  alt="Typography foundations page showing the semantic type ramp with sizes, weights and line heights"
+  caption="Type: nine semantic styles, each with the role it serves."
+/>
 
-The system documents reusable controls, product patterns, and the states needed to use them consistently.
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-foundations-color.png"
+  alt="Color foundations page showing semantic tokens for background, surface, content, action and game accents, mapped to primitives"
+  caption="Color: semantic tokens over primitives. Game art and road/vehicle surfaces stay deliberately outside the system — they answer to game mechanics, not to the interface."
+/>
 
-## Patterns
+## Components with their states
 
-Repeated compositions were documented without forcing game-specific interfaces into components that were too generic to remain useful.
+The components documented are the ones already repeating across surfaces — the header, cards, panels, buttons, inputs, dialogs and tabs. What the system adds is explicit variants and states, so behavior is reviewable instead of incidental.
 
-## Application
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-component-button-states.png"
+  alt="Button component documented across variants and states including default, hover, pressed, focus and disabled"
+  caption="Hover, pressed, focus and disabled were the treatments varying most widely between games. They become variants rather than per-game CSS."
+/>
 
-The clearest proof of the system is [Soft Arcade Synth Lab](/work/soft-arcade-synth-lab), a new product designed using Design System V1 as its shared foundation.
+## Patterns, where components are not the right unit
+
+Some repeated things are compositions, not components. Those are documented as patterns so games can follow the shape without being forced into a component too generic to be useful.
+
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-pattern-game-page-shell.png"
+  alt="Game page shell pattern showing the stage, rail and control arrangement and how it collapses at narrow widths"
+  caption="The game page shell is a pattern. Game stage internals stay game-owned — they are mechanics, not interface."
+/>
+
+## Checked against production
+
+The last step was rebuilding real screens from the system and comparing them to what actually ships, including the differences that remain.
+
+<Figure
+  src="/images/projects/soft-arcade-design-system/design-system-production-validation.png"
+  alt="System reference page showing production screens reconstructed from system foundations and components, with remaining differences listed"
+  caption="Normalized reconstructions next to the production captures, with the remaining differences written down rather than quietly absorbed."
+/>
+
+## The system was used, not shelved
+
+[Soft Arcade Synth Lab](/work/soft-arcade-synth-lab) is a new product designed on this baseline. It inherits the foundations and the shared components, and it exposed four gaps — a generic segmented control, a toggle, an anchored popover and a reusable range control. Those are recorded as candidates rather than added to V1, because promoting a component on one consumer is how a system starts describing a single product instead of several.
 
 ## Links
 
-TODO: Add the confirmed Soft Arcade URL.
+TODO: Add the public Soft Arcade URL.

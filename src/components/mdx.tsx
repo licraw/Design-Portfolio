@@ -2,6 +2,8 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 import { slugify as transliterate } from "transliteration";
 
+import { Figure, FigureRow } from "@/components/work/Figure";
+
 import {
   Heading,
   HeadingLink,
@@ -202,6 +204,8 @@ const components = {
   Icon,
   Media,
   SmartLink,
+  Figure,
+  FigureRow,
 };
 
 type CustomMDXProps = MDXRemoteProps & {

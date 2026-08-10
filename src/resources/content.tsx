@@ -84,7 +84,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About — ${person.name}`,
-  description: `${person.name} is a Portland-based design engineer and frontend engineer.`,
+  description: "I’m a Portland-based design engineer and frontend engineer.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -101,29 +101,50 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Liam Crawshaw is a Portland-based frontend engineer and design engineer working across
-        product interfaces, design systems, ecommerce, and creative technology. His background is
-        primarily in software engineering, with years of experience collaborating closely with
-        product and design teams and increasingly owning design, prototyping, interaction, and
-        systems work.
+        I’m a Portland-based design engineer and frontend engineer who has spent most of my career
+        working at the intersection of design and code.
         <br />
         <br />
-        Music and audio technology were an important part of his path into software and remain a
-        focus of his independent product work.
+        In product teams, I’ve traditionally been the engineer who understands the design language,
+        works comfortably in Figma, and cares about carrying design intent all the way through
+        implementation. I’ve worked closely with product designers throughout my career, learning
+        from them, filling in the interaction details that emerge between static designs and working
+        software, and extending established systems when new states or components are needed.
+        <br />
+        <br />
+        That relationship with design started much earlier. I began in tech building WordPress
+        sites, where solving a problem might mean writing code, opening GIMP to edit an asset, or
+        designing an icon myself. Over time, that gave me the confidence to take on more direct
+        design work — including product labels and ecommerce design for Clean Strength, the redesign
+        of PaintPDX, the Soft Arcade design system, and most recently Soft Arcade Synth Lab.
+        <br />
+        <br />
+        Music and audio technology were also what originally pulled me toward software. Today I’m
+        especially interested in creative tools, audio products, interaction design, design systems,
+        and emerging ways AI can work alongside people without making the interface disappear.
       </>
     ),
   },
   work: {
     display: true,
-    title: "Work Experience",
+    title: "Experience",
     experiences: [
       {
         company: "Fender Musical Instruments Corporation",
-        timeframe: "TODO: Add verified dates",
-        role: "Frontend Engineer",
+        timeframe: "Mar 2022 – Apr 2026",
+        role: "Software Engineer / Full Stack Engineer",
         achievements: [
-          "Built production frontend experiences across Fender products and multi-brand ecommerce storefronts in collaboration with product and design teams.",
-          "Work represented in this portfolio includes Fender Product Gallery and Fender Play’s First Song onboarding experience.",
+          "Built production experiences for musicians across Fender Play and Fender’s multi-brand ecommerce platform, working closely with product and design teams on interaction, motion, responsive UI, accessibility, frontend architecture, and performance.",
+          "Selected work includes the Fender Product Gallery and Fender Play First Song onboarding experience.",
+        ],
+        images: [],
+      },
+      {
+        company: "Independent Design & Development",
+        timeframe: "2018 – Present",
+        role: "",
+        achievements: [
+          "Design and development work spanning Soft Arcade, Synth Lab, PaintPDX, Clean Strength, and other independent projects.",
         ],
         images: [],
       },
@@ -136,28 +157,36 @@ const about: About = {
   },
   technical: {
     display: true,
-    title: "Selected technical areas",
+    title: "Selected areas",
     skills: [
       {
-        title: "Product and systems",
+        title: "Design",
         description: (
-          <>Figma, design systems, prototyping, accessibility, and interaction design.</>
+          <>
+            Figma, interaction design, design systems, component libraries, prototyping, responsive
+            design, accessibility, and visual design.
+          </>
         ),
-        tags: [{ name: "Figma", icon: "figma" }],
+        tags: [],
         images: [],
       },
       {
-        title: "Frontend engineering",
+        title: "Engineering",
         description: (
-          <>React, TypeScript, Next.js, CSS, frontend performance, animation, and browser APIs.</>
+          <>
+            React, TypeScript, Next.js, CSS, animation, frontend performance, browser APIs, and
+            production UI systems.
+          </>
         ),
-        tags: [{ name: "React" }, { name: "TypeScript" }, { name: "Next.js", icon: "nextjs" }],
+        tags: [],
         images: [],
       },
       {
         title: "Creative technology",
-        description: <>Tone.js, Web Audio, and browser-based music tools.</>,
-        tags: [{ name: "Tone.js" }, { name: "Web Audio" }],
+        description: (
+          <>Tone.js, Web Audio, browser-based music tools, WebMCP, and agentic interfaces.</>
+        ),
+        tags: [],
         images: [],
       },
     ],
