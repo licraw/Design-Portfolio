@@ -1,0 +1,45 @@
+---
+title: "Soft Arcade Synth Lab"
+subtitle: "Product Design + Design Engineering"
+order: 1
+summary: "A browser-based four-track groovebox designed to help people learn synthesis by making music."
+images: []
+team: []
+---
+
+## Overview
+
+Synth Lab is a playful browser-based four-track groovebox that teaches synthesis through making rather than detached tutorials. Liam designed and built the product.
+
+## Problem
+
+Traditional synthesizer interfaces often expose oscillators, filters, envelopes, sequencing, and polyphony in ways that assume prior knowledge. The design goal was to preserve real synthesis concepts while making their cause and effect easier to understand.
+
+## Design exploration
+
+The interface exploration considered perceptual versus technical parameter language and led to dual labels that connect what a control sounds like with the underlying synthesis concept. It also covered knobs versus sliders, parameter grouping and progressive disclosure, sequencer interaction, ADSR envelope interaction, and responsive touch behavior.
+
+## Design system
+
+Synth Lab was designed using [Soft Arcade Design System V1](/work/soft-arcade-design-system) as its shared foundation.
+
+## Build
+
+The product is built with React, TypeScript, Tone.js, and browser audio APIs. A semantic command and state architecture supports product actions, responsive interaction, and shared undo/history behavior.
+
+## Agentic interface
+
+Synth Lab includes an experimental WebMCP interface. Agents work through semantic musical tools instead of DOM automation. Their changes use the same command and state architecture as human changes, remain visible and audible in the product, and participate in normal undo/history behavior. This interface is experimental, not presented as production-ready.
+
+## Iteration
+
+Implementation changed the design in concrete ways:
+
+- The initial one-bar loop became repetitive, so the pattern expanded to two bars.
+- The initial tempo was reduced to make listening and learning feel less rushed.
+- Mobile audio exposed real browser and audio lifecycle constraints.
+- The implementation was brought back into alignment with the designed grouped audio controls and ADSR interaction.
+
+## Links
+
+TODO: Add the confirmed live Synth Lab and Soft Arcade URLs. Add a GitHub link only if the repository is intended to be public.
