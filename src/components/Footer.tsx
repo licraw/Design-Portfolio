@@ -30,6 +30,7 @@ export const Footer = () => {
             (item) =>
               item.link && (
                 <IconButton
+                  aria-label={item.name}
                   key={item.name}
                   href={item.link}
                   icon={item.icon}

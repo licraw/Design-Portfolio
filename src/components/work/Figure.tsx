@@ -36,7 +36,20 @@ function assetExists(src: string) {
 function Frame({ src, alt, ratio }: { src: string; alt: string; ratio?: string }) {
   // Media plays .mp4 as a silent loop and embeds YouTube itself; neither can be
   // measured from disk, so they fall back to 16:9 unless a ratio is given.
-  if (isVideo(src) || isEmbed(src)) {
+  if (isEmbed(src)) {
+    return (
+      <iframe
+        className={styles.embed}
+        src={src}
+        title={alt}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        loading="lazy"
+      />
+    );
+  }
+
+  if (isVideo(src)) {
     return (
       <Media
         radius="m"

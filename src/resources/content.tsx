@@ -6,8 +6,7 @@ const person: Person = {
   lastName: "Crawshaw",
   name: "Liam Crawshaw",
   role: "Design Engineer + Frontend Engineer",
-  // TODO: Replace with a real portrait when one is available.
-  avatar: "/images/avatar-placeholder.svg",
+  avatar: "/images/og/home.jpg",
   email: "ltcrawshaw@gmail.com",
   location: "America/Los_Angeles",
   locationLabel: "Portland, Oregon",
@@ -44,8 +43,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  // TODO: Replace with a portfolio-specific social sharing image.
-  image: "/images/og/home-placeholder.svg",
+  image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name} — ${person.role}`,
   description:
@@ -101,22 +99,23 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I’m a Portland-based design engineer and frontend engineer who has spent most of my career
-        working at the intersection of design and code.
+        I’m a Portland-based product designer and design engineer with eight years of experience
+        carrying digital experiences from early definition through production. My engineering
+        background shapes how I design: interaction states, responsive behavior, accessibility,
+        performance, and implementation constraints are part of the design process rather than
+        considerations added afterward.
         <br />
         <br />
-        In product teams, I’ve traditionally been the engineer who understands the design language,
-        works comfortably in Figma, and cares about carrying design intent all the way through
-        implementation. I’ve worked closely with product designers throughout my career, learning
-        from them, filling in the interaction details that emerge between static designs and working
-        software, and extending established systems when new states or components are needed.
+        At Fender, I worked closely with product and design teams on production interaction, motion,
+        responsive UI, accessibility, and ecommerce experiences. My role was often to carry design
+        intent through the states and constraints that emerge in working software, extending
+        established systems where the product needed it.
         <br />
         <br />
-        That relationship with design started much earlier. I began in tech building WordPress
-        sites, where solving a problem might mean writing code, opening GIMP to edit an asset, or
-        designing an icon myself. Over time, that gave me the confidence to take on more direct
-        design work — including product labels and ecommerce design for Clean Strength, the redesign
-        of PaintPDX, the Soft Arcade design system, and most recently Soft Arcade Synth Lab.
+        Independent projects expanded that work into direct ownership of product definition, visual
+        design, responsive systems, and Figma design. Synth Lab, the Soft Arcade design system,
+        PaintPDX, and Clean Strength show that ownership across digital products, websites, and
+        physical product formats.
         <br />
         <br />
         Music and audio technology were also what originally pulled me toward software. Today I’m

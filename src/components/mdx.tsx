@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { slugify as transliterate } from "transliteration";
 
 import { Figure, FigureRow } from "@/components/work/Figure";
+import { ProjectSummary } from "@/components/work/ProjectSummary";
 
 import {
   Heading,
@@ -206,6 +207,7 @@ const components = {
   SmartLink,
   Figure,
   FigureRow,
+  ProjectSummary,
 };
 
 type CustomMDXProps = MDXRemoteProps & {
@@ -213,5 +215,11 @@ type CustomMDXProps = MDXRemoteProps & {
 };
 
 export function CustomMDX(props: CustomMDXProps) {
-  return <MDXRemote options={{ blockJS: false }} {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return (
+    <MDXRemote
+      options={{ blockJS: false }}
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }

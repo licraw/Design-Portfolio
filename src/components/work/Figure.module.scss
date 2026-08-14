@@ -23,4 +23,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
+.embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-m);
+}

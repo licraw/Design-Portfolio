@@ -13,8 +13,24 @@ import type {
 } from "@/types";
 import { home, person, social } from "./content";
 
-// TODO: Set NEXT_PUBLIC_BASE_URL to Liam's stable production domain when it is known.
-const baseURL: string = process.env.NEXT_PUBLIC_BASE_URL ?? "https://localhost:3000";
+export const productionURL = "https://li-craw-portfolio.vercel.app";
+
+// Production metadata must always resolve to the public site. A preview deployment can
+// opt into its own canonical host without making local development leak into shared links.
+const configuredURL = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const isPublicHTTPSURL = (value?: string) => {
+  if (!value) return false;
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === "https:" && url.hostname !== "localhost" && url.hostname !== "127.0.0.1"
+    );
+  } catch {
+    return false;
+  }
+};
+const baseURL: string =
+  configuredURL && isPublicHTTPSURL(configuredURL) ? configuredURL : productionURL;
 
 const routes: RoutesConfig = {
   "/": true,

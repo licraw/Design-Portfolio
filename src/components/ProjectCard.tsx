@@ -36,12 +36,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Column fillWidth gap="m">
       {preview ? (
-        <Media
-          aspectRatio="16 / 9"
-          radius="l"
-          border="neutral-alpha-weak"
-          alt={`${title} preview`}
+        <iframe
           src={preview}
+          title={`${title} preview`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          loading="lazy"
+          style={{ width: "100%", aspectRatio: "16 / 9", border: 0, borderRadius: "1rem" }}
         />
       ) : images.length > 0 ? (
         <Carousel

@@ -135,6 +135,7 @@ export default function About() {
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
                 <Row paddingX="8">Schedule a call</Row>
                 <IconButton
+                  aria-label="Open scheduling page"
                   href={about.calendar.link}
                   data-border="rounded"
                   variant="secondary"
@@ -182,6 +183,7 @@ export default function About() {
                           </Row>
                           <Row hide s={{ hide: false }}>
                             <IconButton
+                              aria-label={item.name}
                               size="l"
                               key={`${item.name}-icon`}
                               href={item.link}
