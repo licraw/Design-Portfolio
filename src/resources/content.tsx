@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Crawshaw",
   name: "Liam Crawshaw",
   role: "Design Engineer + Frontend Engineer",
-  avatar: "/images/og/home.jpg",
+  avatar: "/icon.svg",
   email: "ltcrawshaw@gmail.com",
   location: "America/Los_Angeles",
   locationLabel: "Portland, Oregon",
@@ -43,11 +43,11 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/api/og/generate?title=Liam%20Crawshaw%20%E2%80%94%20Product%20Designer%20%2B%20Design%20Engineer",
   label: "Home",
-  title: `${person.name} — ${person.role}`,
+  title: `${person.name} — Product Designer + Design Engineer`,
   description:
-    "Liam Crawshaw designs and builds interactive products at the intersection of design, engineering, and creative technology.",
+    "Portfolio of Liam Crawshaw, a product designer and design engineer creating ecommerce experiences, design systems, responsive interfaces, and creative technology.",
   headline: (
     <>
       Liam Crawshaw
