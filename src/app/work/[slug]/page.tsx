@@ -1,4 +1,5 @@
 import { CustomMDX, ScrollToHash } from "@/components";
+import { getImageSize } from "@/components/work/imageSize";
 import { Projects } from "@/components/work/Projects";
 import { about, baseURL, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -75,6 +76,8 @@ export default async function Project({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
+  const leadImage = post.metadata.images[0];
+  const leadImageSize = leadImage ? getImageSize(leadImage) : null;
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -126,13 +129,15 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
-      {post.metadata.images.length > 0 && (
+      {leadImage && (
         <Media
           priority
-          aspectRatio="16 / 9"
+          aspectRatio={
+            leadImageSize ? `${leadImageSize.width} / ${leadImageSize.height}` : "16 / 9"
+          }
           radius="m"
           alt={post.metadata.title}
-          src={post.metadata.images[0]}
+          src={leadImage}
         />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">

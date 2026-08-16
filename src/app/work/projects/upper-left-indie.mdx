@@ -1,0 +1,185 @@
+---
+title: "Upper Left Indie"
+subtitle: "Product Design + UX/UI Audit"
+order: 3
+summary: "An end-to-end audit, responsive redesign, and production build for a one-person Northwest music-curation project centered on artist discovery and direct support."
+images:
+  - "/images/projects/upper-left-indie/upper-left-indie-hero.png"
+image: "/images/projects/upper-left-indie/upper-left-indie-hero.png"
+team: []
+---
+
+## A music project built to send people elsewhere
+
+Upper Left Indie is a one-person curation project for independent artists from Oregon, Washington, Idaho, Alaska, British Columbia, and the wider Northwest. It serves listeners looking for music, artists submitting work, and the curator maintaining the project.
+
+I owned the redesign from product audit through production: strategy, information architecture, UX/UI, the responsive Figma system, frontend implementation, and integration with the product’s existing data and services.
+
+Figma remained the visual and interaction source of truth. Production work translated those decisions into the existing Next.js application while preserving its artist data, Spotify playlists, Supabase-backed submissions and shows, Bandcamp ingestion, newsletter calls, email delivery, admin playlist tools, and Stripe checkout.
+
+<ProjectSummary
+  items={[
+    { label: "Role", value: "Product designer and frontend engineer" },
+    { label: "Scope", value: "Product strategy, audit, information architecture, UX/UI, design system, accessibility, frontend implementation, and technical integration" },
+    { label: "Audiences", value: "Listeners, submitting artists, and the curator" },
+    { label: "Deliverables", value: "Audit, responsive Figma source of truth, production components, public routes, and integrated interaction states" },
+    { label: "Status", value: "Designed and implemented on the production application’s redesign branch" }
+  ]}
+/>
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-hero.png"
+  alt="Upper Left Indie desktop homepage hero with a Northwest music-curation introduction, curator note, playlist artwork, and links to listen or browse artists"
+  caption="The final homepage opens with the regional scope, the person behind the picks, and two clear ways forward: listen now or browse artists."
+/>
+
+## The navigation understated the product
+
+The original experience had more to offer than its hierarchy admitted. Listening, artist discovery, submissions, and support competed for attention, while shows and the archive were difficult to find. “Support” also carried two different meanings: money sent directly to musicians and money contributed to keep the curation project running.
+
+The audit found concrete accessibility and state gaps as well. Some supporting copy fell below AA contrast, newsletter consent was preselected, focus treatment was incomplete, and the submission form did not explain its format requirements or document validation, loading, success, and error states.
+
+These are findings from the repository and rendered product—not claims about user behavior. The work did not include interviews, analytics, usability testing, or conversion data, so the case study does not manufacture them after the fact.
+
+## Four product principles
+
+- **Send listeners onward.** A track is an introduction; the useful next step is the artist’s own page, store, or listening destination.
+- **Put the curator in the interface.** The selection is made by one person, so the process and limits should be visible rather than dressed as anonymous editorial authority.
+- **Name the two kinds of support.** Buying from an artist and funding the project are different actions, with different recipients and priorities.
+- **Make the constraints explicit.** Regional eligibility, submission cost, required formats, response expectations, and selection practices should not be hidden in error messages or footer copy.
+
+## Organizing around the next action
+
+The shipped navigation reduces the primary routes to Listen, Artists, Shows, and About, with Submit music kept as a distinct action. Archive moves into the listening story instead of reading like discarded content. Project support remains available, but it is deliberately quieter than direct artist support.
+
+This structure gives each task one name: listen to the current playlist, browse artists, find older selections, discover shows, understand the curator, submit music, buy from an artist, or support the project. The distinction matters more than adding another navigation item.
+
+## From audit to a reusable system
+
+The visual direction uses a warm page surface, narrow display type, straightforward body type, and restrained clay accents. The system documents semantic color, type, a four-pixel spacing base, and layout modes for 390, 834, and 1440-pixel frames.
+
+Accessibility decisions are part of the foundations. Corrected text colors meet AA contrast against the page background; focus has its own high-contrast token; strong borders carry form affordance; and subtle borders remain decorative rather than the only signal.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-foundations.png"
+  alt="Upper Left Indie design-system foundations showing semantic color tokens with contrast ratios, typography, spacing, elevation, and responsive layout modes"
+  caption="A curated foundations view. Semantic tokens record contrast and usage constraints; responsive modes define gutters, content width, and section rhythm."
+/>
+
+Shared components cover buttons, fields, tags, consent, track rows, artist cards, support tiers, headers, empty states, and confirmation panels. The Figma tokens became semantic Tailwind values for surfaces, text, borders, feedback, type, radius, shadow, and content width. Archivo Narrow and Public Sans are self-hosted through `next/font`, limited to the weights the interface uses.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-button-states.png"
+  alt="Upper Left Indie primary, secondary, and quiet buttons shown in default, hover, pressed, focus, disabled, and loading states"
+  caption="Three emphasis levels across six states. The quiet treatment keeps project support present without competing with direct artist support."
+/>
+
+## Artist discovery leads outside the platform
+
+The production artist index reads the generated Bandcamp directory and derives region, primary genre, and recency from the data it actually has. Filters live in the URL, so a result can be shared and restored. Every filter remains at least 44 pixels tall, selection uses fill and border rather than color alone, and the result count is announced through a polite live region.
+
+Cards normalize image geometry so a photo, artwork, or initials fallback never shifts the content. Production also cleans scraped biography artifacts and preserves the additional artist links already present in the dataset rather than dropping them to match a simplified mockup.
+
+The more important change is where each card ends: a direct Bandcamp action. The portfolio piece does not treat time-on-site as the goal; discovery should continue at an artist-owned destination.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-artists.png"
+  alt="Upper Left Indie artist browsing page with region and genre filters and a grid of artist cards linking directly to Bandcamp"
+  caption="Artist browsing keeps regional context visible, handles missing imagery without layout shift, and gives every result a direct artist destination."
+/>
+
+## Submission guidance before validation
+
+The shipped form states the regional scope, that submission is free, what information is required, and what the curator can realistically promise. Helper text explains why a Spotify track link is useful instead of waiting for an error to reveal the rule.
+
+Consent is separated into two choices. Permission to use public artist information is explicit; newsletter enrollment is optional and unchecked. Validation moves focus to an error summary, async outcomes are announced, and success becomes a confirmation panel with a consent recap.
+
+The UI work did not replace the submission pipeline. A successful submit still saves to Supabase, sends email, optionally queues a Bandcamp artist page, and optionally calls the newsletter endpoint. Partial failures are handled so one unavailable integration does not erase a submission that another service already accepted.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-submit.png"
+  alt="Upper Left Indie desktop music-submission page with eligibility guidance, grouped fields, separate consent choices, and a full-width submit action"
+  caption="The full form makes eligibility, required formats, consent, and response expectations visible before submission."
+/>
+
+<FigureRow
+  items={[
+    { src: "/images/projects/upper-left-indie/upper-left-indie-validation-mobile.png", alt: "Mobile submission error with a summary, an explanatory Spotify-link message, and a no-Spotify alternative", label: "Validation · 390 px" },
+    { src: "/images/projects/upper-left-indie/upper-left-indie-button-states.png", alt: "Button states including visible focus, disabled, and loading treatments", label: "Interaction states" }
+  ]}
+  caption="Errors use a summary, text, and border treatment rather than color alone. The message offers a valid Bandcamp path instead of leaving the artist at a dead end."
+/>
+
+## Supporting artists is not supporting the project
+
+The support route separates two actions. Buying music or merchandise sends money to the artist; a project contribution covers the project. Direct artist support appears first and receives the stronger treatment.
+
+The Figma file used illustrative operating-cost copy, so those unverified figures were not shipped as fact. Production preserves the existing one-time Stripe Checkout flow, maps each approved support option to its configured Price ID, and scopes loading and error feedback to the selected tier.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-support.png"
+  alt="Upper Left Indie project-support page that first directs people to buy from artists, then explains optional project contributions and their intended use"
+  caption="The hierarchy resolves the support collision: artist-owned purchases first, optional project funding second, with the recipient made explicit."
+/>
+
+## Responsive behavior changes the composition
+
+The system specifies three layout modes rather than treating mobile as a scaled desktop. In production, the hero changes from a two-column grid to a stacked composition, result grids collapse from three to two to one column, filter rows can scroll or wrap without pushing the page wider, calls to action reflow, and the footer and forms stack.
+
+<FigureRow
+  items={[
+    { src: "/images/projects/upper-left-indie/upper-left-indie-tablet.png", alt: "Upper Left Indie homepage at tablet width with a stacked hero, two-column track cards, paired archive and shows cards, and a reflowed footer", label: "Tablet · 834 px" },
+    { src: "/images/projects/upper-left-indie/upper-left-indie-mobile.png", alt: "Upper Left Indie mobile homepage with menu navigation, full-width actions, horizontally browsable track cards, stacked sections, and mobile footer", label: "Mobile · 390 px" }
+  ]}
+  caption="The same content hierarchy at two narrow widths. Components reflow, reorder, or change browsing behavior instead of shrinking in place."
+/>
+
+<FigureRow
+  items={[
+    { src: "/images/projects/upper-left-indie/upper-left-indie-mobile.png", alt: "Figma mobile homepage with compact navigation, stacked hero, playlist panel, and mobile content sequence", label: "Figma · 390 px" },
+    { src: "/images/projects/upper-left-indie/upper-left-indie-production-mobile.png", alt: "Implemented narrow Upper Left Indie homepage with menu navigation, production copy, and the live Spotify playlist embed", label: "Production · narrow viewport" }
+  ]}
+  caption="Mobile design beside the running route. The production embed carries real Spotify content, so its internal controls and height differ from the designed placeholder while the surrounding hierarchy is preserved."
+/>
+
+## Translating the design into the working product
+
+The Figma screens used representative content to establish hierarchy. The implementation replaced it with the product’s real behavior:
+
+- The stylized playlist panel became the real Spotify embed and active-playlist link.
+- Recent track cards join Spotify playlist data to accepted submissions when a match exists, then link outward to Spotify and Bandcamp.
+- The artist directory renders the generated Bandcamp dataset, including real artwork, locations, releases, and secondary links.
+- Archive keeps the active and archived Spotify playlists distinct.
+- Shows retains its Supabase read, server-side venue filter, revalidation, and configured and empty states.
+- Submission keeps the Supabase, email, Bandcamp-queue, and newsletter calls behind the redesigned form.
+- Project support keeps one-time Stripe Checkout rather than introducing a new payment model.
+
+Two adaptations were deliberate. Archive and Shows had no dedicated high-fidelity frames, so I built them from the Figma foundations and shared components instead of inventing separate visual languages. Illustrative artist pairings, curator dates, playlist counts, and support-cost figures in the design were replaced or omitted whenever the running product could not verify them.
+
+<FigureRow
+  items={[
+    { src: "/images/projects/upper-left-indie/upper-left-indie-hero.png", alt: "Figma desktop homepage hero with representative playlist artwork and final hierarchy", label: "Figma · desktop" },
+    { src: "/images/projects/upper-left-indie/upper-left-indie-production-home.png", alt: "Implemented Upper Left Indie desktop homepage with the live Spotify playlist embed and production copy", label: "Production · desktop" }
+  ]}
+  caption="Design beside implementation. The hierarchy stays intact; representative playlist content gives way to the real Spotify surface and production data."
+/>
+
+<FigureRow
+  items={[
+    { src: "/images/projects/upper-left-indie/upper-left-indie-artists.png", alt: "Figma artist-browser design with region and genre filters and representative cards", label: "Figma · artist browser" },
+    { src: "/images/projects/upper-left-indie/upper-left-indie-production-artists.png", alt: "Implemented artist browser populated with real Bandcamp artist records, filters, result count, artwork, and links", label: "Production · real artist data" }
+  ]}
+  caption="The production grid keeps the designed filtering model while preserving the richer links and release data already available for each artist."
+/>
+
+## Shipped outcome
+
+Upper Left Indie now has a clearer public-route model, a reusable responsive UI system, real data behind its discovery surfaces, explicit interaction and form states, and a working distinction between supporting musicians and funding the project.
+
+<Figure
+  src="/images/projects/upper-left-indie/upper-left-indie-production-submit.png"
+  alt="Implemented Upper Left Indie submission route with production eligibility copy, grouped fields, explanatory helper text, and consent controls"
+  caption="The shipped submission route, connected to the existing backend behavior rather than reproduced as a static front-end exercise."
+/>
+
+The work ships without a numerical business claim. Useful follow-up measurement would include artist-destination clicks and submission completion, and usability testing would test whether the new route model matches how listeners and submitting artists actually move through the product.
