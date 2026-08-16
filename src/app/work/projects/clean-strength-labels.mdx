@@ -1,43 +1,131 @@
 ---
-title: "Clean Strength — Label Design"
-subtitle: "Visual Design / Packaging"
+title: "Clean Strength"
+subtitle: "Ecommerce UX/UI / Brand Design / Shopify"
 order: 4
-summary: "An adaptable label system for Clean Strength products, balancing brand recognition, product differentiation, information hierarchy, and different physical containers."
+summary: "Extending a supplement brand from packaging into a reusable Shopify storefront and responsive product-detail experience."
 images:
-  - "/images/projects/clean-strength/clean-strength-label-01.jpg"
+  - "/images/projects/clean-strength/ecommerce/pdp-hero.png"
 team: []
 ---
 
-## What it is
+## Packaging to storefront
 
-An adaptable visual identity and label system for Clean Strength products, designed to hold together across creatine, 5-HTP, and protein products while adapting to different container formats.
+Clean Strength is my owned and operated supplement brand and Shopify store. I established its visual identity through the product labels and current storefront, then extended that identity into a reusable ecommerce design system and responsive PDP redesign.
 
 <ProjectSummary
   items={[
-    { label: "Role", value: "Visual designer" },
-    { label: "Scope", value: "Visual identity application and multi-product label system" },
-    { label: "Formats", value: "Creatine, 5-HTP, and whey protein containers" },
-    { label: "Deliverables", value: "Label artwork and applied product presentations" }
+    { label: "Role", value: "Brand designer, ecommerce UX/UI designer, Shopify owner, and design-system owner" },
+    { label: "Scope", value: "Packaging identity, storefront audit, responsive PDP, reusable components, and implementation model" },
+    { label: "Platform", value: "Shopify storefront and Theme Editor" },
+    { label: "Featured product", value: "Complete Multivitamin" }
   ]}
 />
 
-## A hierarchy that adapts
+<Figure
+  src="/images/projects/clean-strength/ecommerce/pdp-hero.png"
+  alt="Clean Strength Complete Multivitamin ecommerce hero with product media gallery and purchase panel"
+  caption="The packaging identity becomes an ecommerce hierarchy built from reusable storefront components."
+/>
 
-The work is typographic. A physical label has a fixed area, necessary product information, and a curved surface it has to stay legible on. The system establishes a repeatable reading order: Clean Strength brand, product name, variant, required information, weight or quantity, and secondary claims. Scale, weight, color, and spacing keep those levels distinct without crowding the front face.
+**Storefront redesign — work in progress**  
+This system is guiding an ongoing sitewide evolution, so the live store may reflect some or all of the work shown here.
 
-## Consistency across products
+## Brand foundation
 
-The blue, black, and white palette, strong product-name typography, and repeated information zones make the range recognizable as one brand. Product names and variants change emphasis where each format needs it, while the shared hierarchy keeps creatine, 5-HTP, and protein connected rather than treating every label as a separate composition.
+The labels established the system first: a blue, black, and white palette, strong product-name typography, and repeatable information zones that distinguish products without breaking the family resemblance. The current Shopify theme carries that same identity through its color, type, product imagery, and Theme Editor customizations.
 
 <FigureRow
   items={[
-    { src: "/images/projects/clean-strength/clean-strength-label-01.jpg", alt: "Blue and black Clean Strength creatine monohydrate label applied to a white container" },
-    { src: "/images/projects/clean-strength/clean-strength-label-02.jpg", alt: "White and blue Clean Strength 5-HTP label applied to a supplement bottle" }
+    { src: "/images/projects/clean-strength/clean-strength-label-01.jpg", alt: "Blue and black Clean Strength creatine monohydrate label applied to a white container", label: "Creatine Monohydrate" },
+    { src: "/images/projects/clean-strength/clean-strength-label-02.jpg", alt: "White and blue Clean Strength 5-HTP label applied to a supplement bottle", label: "5-HTP" }
   ]}
+  caption="A shared reading order, palette, and typographic voice adapt to different products and container formats."
 />
 
 <Figure
   src="/images/projects/clean-strength/clean-strength-labels-applied.jpg"
   alt="Blue and black Clean Strength chocolate whey protein label applied to a white container"
-  caption="The label system applied across different product formats."
+  caption="The label system applied to a larger protein format."
+/>
+
+## A working storefront, ready to scale
+
+The existing Supliful-based theme is a functional foundation, but many product-specific templates repeat the same PDP structure. The redesign separates shared commerce patterns from the content that legitimately changes by product, preserving Theme Editor flexibility while reducing one-off layout decisions.
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/current-pdp.png"
+  alt="Full current Clean Strength Complete Multivitamin Shopify product page at desktop width"
+  caption="The current storefront provided the real content, imagery, navigation, purchase model, and implementation constraints."
+/>
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/audit-template-content.png"
+  alt="Clean Strength template and content audit showing shared PDP structure and product-specific content"
+  caption="The audit distinguishes reusable structure from product data instead of treating every template as a separate page design."
+/>
+
+## A reusable ecommerce system
+
+The digital system translates the packaging’s direct typography and high-contrast palette into semantic color and type tokens, responsive spacing, interaction states, and components. Buttons, purchase options, quantity controls, galleries, accordions, product cards, and the mobile sticky action share one source of truth.
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/foundations.png"
+  alt="Clean Strength ecommerce foundations covering color, typography, spacing, breakpoints, imagery, and accessibility"
+  caption="Sitewide foundations derived from the brand and the working Shopify theme."
+/>
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/component-system.png"
+  alt="Clean Strength shared commerce components showing purchase controls, accordions, product cards, and interaction states"
+  caption="Shared commerce families are route-agnostic; PDP-specific behavior is isolated rather than copied into every product template."
+/>
+
+## Complete Multivitamin PDP
+
+The redesigned PDP gives the product imagery and thumbnails a clear stage, then organizes name, verified attributes, price, pack choice, purchase option, quantity, and add-to-cart behavior into one legible decision path. Benefits and detailed product information follow in scannable sections, with accordions providing progressive disclosure rather than an uninterrupted description.
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/pdp-desktop.png"
+  alt="Full desktop Clean Strength Complete Multivitamin product-detail page redesign"
+  caption="Desktop PDP, 1440px. Real Shopify product content and media are composed entirely from reusable system instances."
+/>
+
+<Figure
+  src="/images/projects/clean-strength/ecommerce/purchase-panel.png"
+  alt="Desktop and mobile Clean Strength product purchase panel variants"
+  caption="The purchase panel keeps product identity, price, configuration, action, and supporting evidence in one reusable composition."
+/>
+
+## One hierarchy across breakpoints
+
+Desktop pairs the gallery and purchase panel; mobile sequences them for fast scanning, shortens the thumbnail treatment, and keeps the active purchase available once the primary controls leave the viewport. The information order stays consistent even as the layout changes.
+
+<FigureRow
+  items={[
+    { src: "/images/projects/clean-strength/ecommerce/pdp-desktop.png", alt: "Desktop Complete Multivitamin PDP redesign", label: "Desktop — 1440px" },
+    { src: "/images/projects/clean-strength/ecommerce/pdp-mobile.png", alt: "Mobile Complete Multivitamin PDP redesign", label: "Mobile — 390px" }
+  ]}
+  caption="The same component model supports both the full desktop and mobile experiences."
+/>
+
+<FigureRow
+  items={[
+    { src: "/images/projects/clean-strength/ecommerce/mobile-first-screen.png", alt: "Mobile Complete Multivitamin first screen with product gallery and purchase information", label: "First screen" },
+    { src: "/images/projects/clean-strength/ecommerce/mobile-sticky-cart.png", alt: "Mobile Complete Multivitamin scrolled state with sticky add-to-cart action", label: "Sticky purchase state" }
+  ]}
+  caption="The fixed action carries the selected product and price without replacing the full purchase controls."
+/>
+
+## Designed for Shopify
+
+The implementation model is a canonical PDP assembled from reusable sections and blocks. Shared layout and behavior remain consistent; product benefits, ingredients, imagery, FAQs, and other legitimate differences enter through product-specific content slots and structured metafields.
+
+That gives the Theme Editor useful flexibility without returning to duplicated templates. It is a practical bridge between polished ecommerce UI and the way a Shopify storefront is actually maintained.
+
+<FigureRow
+  items={[
+    { src: "/images/projects/clean-strength/clean-strength-labels-applied.jpg", alt: "Clean Strength packaging identity on a protein container", label: "Physical identity" },
+    { src: "/images/projects/clean-strength/ecommerce/pdp-hero.png", alt: "Clean Strength Complete Multivitamin ecommerce design", label: "Scalable digital system" }
+  ]}
+  caption="One visual identity, carried from physical packaging into a reusable digital storefront."
 />
