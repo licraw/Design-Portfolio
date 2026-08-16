@@ -129,6 +129,16 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
+      {post.metadata.figma && (
+        <Button
+          href={post.metadata.figma}
+          variant="secondary"
+          size="m"
+          suffixIcon="arrowUpRightFromSquare"
+        >
+          View design in Figma
+        </Button>
+      )}
       {leadImage && (
         <Media
           priority
